@@ -24,8 +24,10 @@ This will setup using Maven and Scala but there are other combinations e.g. sbt,
   - Search and install extension "Maven for Java"
 
 # How to run
-- Run all `mvn gatling:test`
-- Run test `gatling:test -Dgatling.simulationClass=computerdatabase.BasicSimulation`
+
+- Change directory to the gatling test project e.g. "test" 
+- Run all `mvn gatling:test` or `mvn clean gatling:test`
+- Run test `mvn gatling:test -Dgatling.simulationClass=computerdatabase.BasicSimulation`
 
 # Setup new project
 - Add gatling archetype
