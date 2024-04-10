@@ -3,7 +3,7 @@ Gatling tests for RSBC DMF
 
 # Prerequisites
 - Maven
-- JavaSDK
+- Java 8+
 - Metals VS code extension
 - Maven for Java code extension
 
@@ -16,15 +16,14 @@ Gatling tests for RSBC DMF
 This will setup using Maven and Scala but there are other combinations e.g. sbt, Kotlin, Java
 - Clone the repository https://github.com/jburditt/rsbc-dmf-gatling
 - Install Java, you can verify with command `java -v`
-- Install Scala, you can verify with command `scale -version`
-- Install Maven, you can verify with command `mvn -v`. On Windows 11, add the "bin" folder to the environment variables
+- Install Scala, you can verify with command `scala -version`
+- Install Maven, you can verify with command `mvn -v`. On Windows 11, add the "bin" folder to the environment variable "PATH"
 - Install VS code extensions
   - Open VS Code
   - navigate to Extensions and search for "Scala (Metals)"
   - Search and install extension "Maven for Java"
 
 # How to run
-
 - Change directory to the gatling test project e.g. "test" 
 - Run all `mvn gatling:test` or `mvn clean gatling:test`
 - Run test `mvn gatling:test -Dgatling.simulationClass=computerdatabase.BasicSimulation`

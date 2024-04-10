@@ -4,8 +4,8 @@ package scenario {
 
     object UserScenarios {
 
-        var userIds:Array[Map[String,String]] =
-            (100 to 900).toArray map ( x => { Map( "userId" -> x.toString) })
+        //var userIds:Array[Map[String,String]] =
+        //    (100 to 900).toArray map ( x => { Map( "userId" -> x.toString) })
 
         val getAccessToken = scenario("Get token")
             .exec(AuthRequest.getAccessToken)

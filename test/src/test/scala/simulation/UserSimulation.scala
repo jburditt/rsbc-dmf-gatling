@@ -7,6 +7,6 @@ import scala.concurrent.duration._
 class UserSimulation extends Simulation {
     setUp(
         //UserScenarios.createUserScenario.inject(rampUsers(250) during (15 minutes)),
-        UserScenarios.getAccessToken.inject(atOnceUsers(1))
+        UserScenarios.getAccessToken.inject(atOnceUsers(100))
     )
 }
