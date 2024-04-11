@@ -16,11 +16,7 @@ package requests {
     // .check(jmesPath("access_token").ofString()
     //     .exists().saveAs("access_token"));
 
-        val getAccessToken = exec(http("Get access token")
-            .get("http://localhost:8080/api/Driver/info")
-            .header("Authorization", "Bearer 83C150CFD79483A1C5206A9745212820382F51D0A5837635B1A2496BD04FBB80")
-            .check(status.is(200))
-            .check(jsonPath("$.resultStatus").not("Fail")))
+
             
 
             //.get("https://idtest.gov.bc.ca/login/entry")
