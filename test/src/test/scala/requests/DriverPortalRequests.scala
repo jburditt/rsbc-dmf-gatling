@@ -38,4 +38,15 @@ object DriverPortalRequests {
             jmesPath("lettersToDriver").ofType[Seq[Any]]
         )
     )
+
+    val getDocumentTypes = exec(http("Get document types")
+        .get(s"${Configuration.apiURL}DocumentType/driver")
+        .header("Authorization", s"Bearer ${Configuration.bearerToken}")
+        .check(status.is(200))
+        .check(
+            jsonPath("$").ofType[Seq[Any]], //.count.is(9)
+            jmesPath("[0].id").ofType[Int],
+            jmesPath("[0].name").ofType[String],
+        )
+    )
 }

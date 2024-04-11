@@ -22,6 +22,9 @@ object UserScenarios {
 
     val getAllDocuments = scenario("Get all documents")
         .exec(DriverPortalRequests.getAllDocuments)
+
+    val getDocumentTypes = scenario("Get document types")
+        .exec(DriverPortalRequests.getDocumentTypes)
         
     // val createUserScenario = scenario("Create user")
     //     .feed(userIds.circular)
