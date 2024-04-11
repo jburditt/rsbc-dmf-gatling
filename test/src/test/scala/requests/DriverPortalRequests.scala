@@ -23,6 +23,19 @@ object DriverPortalRequests {
         .get(s"${Configuration.apiURL}Cases/Closed")
         .header("Authorization", s"Bearer ${Configuration.bearerToken}")
         .check(status.is(200))
-        .check(jsonPath("$..[?(@.id)]"))
+        .check(jsonPath("$").ofType[Seq[Any]])
+        // TODO when not empty array, check the json properties like in all documents below
+        //.check(jsonPath("$.?[?(@.id)]"))
+    )
+
+    val getAllDocuments = exec(http("Get all documents")
+        .get(s"${Configuration.apiURL}Driver/Documents")
+        .header("Authorization", s"Bearer ${Configuration.bearerToken}")
+        .check(status.is(200))
+        .check(
+            jmesPath("submissionRequirements").ofType[Seq[Any]],
+            jmesPath("caseSubmissions").ofType[Seq[Any]],
+            jmesPath("lettersToDriver").ofType[Seq[Any]]
+        )
     )
 }
