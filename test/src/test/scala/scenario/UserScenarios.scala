@@ -1,6 +1,6 @@
 package scenario
 
-import requests.{AuthRequest, DriverRequests}
+import requests.{AuthRequest, DriverPortalRequests}
 import io.gatling.core.Predef._
 
 object UserScenarios {
@@ -12,11 +12,14 @@ object UserScenarios {
     //    .exec(AuthRequest.getAccessToken)
 
     val getMostRecentCase = scenario("Get most recent case")
-        .exec(DriverRequests.getMostRecentCase)
+        .exec(DriverPortalRequests.getMostRecentCase)
 
     val getDriverInfo = scenario("Get driver info")
-        .exec(DriverRequests.getDriverInfo)
+        .exec(DriverPortalRequests.getDriverInfo)
 
+    val getClosedCases = scenario("Get closed cases")
+        .exec(DriverPortalRequests.getClosedCases)
+        
     // val createUserScenario = scenario("Create user")
     //     .feed(userIds.circular)
     //     .exec(UserAuthZRequest.getAccessToken)
