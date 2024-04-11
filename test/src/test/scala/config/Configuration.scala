@@ -10,5 +10,5 @@ object Configuration
   val tokenPath: String = "https://dev.roadsafetybc.gov.bc.ca/rsbc-dfp-oidc/connect/token"
   // TODO get token
   // until then get the bearer token from the browser network tab e.g. MostRecent Authorization header
-  val bearerToken: String = "963F88AD4307544AC3A0AB07E3436CAC6CE684236382FA0AE763D00FF69A9184"
+  val bearerToken: String = "E8FC7EF5CCA40C32414CDE70D6D69927500B008E7AAF182EA44216C459FD767F"
 }

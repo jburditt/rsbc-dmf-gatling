@@ -20,12 +20,15 @@ object UserScenarios {
     val getClosedCases = scenario("Get closed cases")
         .exec(DriverPortalRequests.getClosedCases)
 
+    val getCaseDocuments = scenario("Get case documents")
+        .exec(DriverPortalRequests.getCaseDocuments)
+
     val getAllDocuments = scenario("Get all documents")
-        .exec(DriverPortalRequests.getAllDocuments)
+        .exec(DriverPortalRequests.getCaseDocuments)
 
     val getDocumentTypes = scenario("Get document types")
         .exec(DriverPortalRequests.getDocumentTypes)
-        
+
     // val createUserScenario = scenario("Create user")
     //     .feed(userIds.circular)
     //     .exec(UserAuthZRequest.getAccessToken)

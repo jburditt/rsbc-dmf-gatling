@@ -28,7 +28,7 @@ object DriverPortalRequests {
         //.check(jsonPath("$.?[?(@.id)]"))
     )
 
-    val getAllDocuments = exec(http("Get all documents")
+    val getCaseDocuments = exec(http("Get case documents")
         .get(s"${Configuration.apiURL}Driver/Documents")
         .header("Authorization", s"Bearer ${Configuration.bearerToken}")
         .check(status.is(200))
@@ -37,6 +37,13 @@ object DriverPortalRequests {
             jmesPath("caseSubmissions").ofType[Seq[Any]],
             jmesPath("lettersToDriver").ofType[Seq[Any]]
         )
+    )
+
+    val getAllDocuments = exec(http("Get all documents")
+        .get(s"${Configuration.apiURL}Driver/AllDocuments")
+        .header("Authorization", s"Bearer ${Configuration.bearerToken}")
+        .check(status.is(200))
+        .check(jsonPath("$").ofType[Seq[Any]])
     )
 
     val getDocumentTypes = exec(http("Get document types")
