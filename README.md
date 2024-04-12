@@ -26,7 +26,7 @@ This will setup using Maven and Scala but there are other combinations e.g. sbt,
 # How to run
 - Change directory to the gatling test project e.g. "test" 
 - Run all `mvn clean gatling:test`
-- Run test `mvn clean gatling:test -Dgatling.simulationClass=simulation.BasicSimulation`
+- Run test `mvn clean gatling:test -Dgatling.simulationClass=simulation.BasicSimulation -DuserCount=1`
 
 # Setup new project
 - Add gatling archetype
