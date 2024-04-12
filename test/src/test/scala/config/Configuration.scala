@@ -11,5 +11,5 @@ object Configuration
   val scope: String = "openid profile email offline_access driver-portal-api"
   // TODO get token
   // until then get the bearer token from the browser network tab e.g. MostRecent Authorization header
-  val bearerToken: String = "7AC7AC85DBF87B1B8655B75CF4B93828F1A454CB0E2FE4B229A1B93F50973E76"
+  val bearerToken: String = "C2C47336A5533B58E7830B9301CDF2FF199192FA9A628BDBF556F0ACBA99B79B"
 }

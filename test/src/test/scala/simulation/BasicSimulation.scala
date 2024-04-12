@@ -6,7 +6,6 @@ import scala.concurrent.duration._
 
 class BasicSimulation extends Simulation {
     setUp(
-        //UserScenarios.createUserScenario.inject(rampUsers(250) during (15 minutes)),
         //UserScenarios.getRefreshToken.inject(atOnceUsers(1))
         UserScenarios.getDriverInfo.inject(atOnceUsers(1)),
         UserScenarios.getMostRecentCase.inject(atOnceUsers(1)),
