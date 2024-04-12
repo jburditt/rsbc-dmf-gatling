@@ -10,13 +10,16 @@ object DriverPortalRequests {
         .get(s"${Configuration.apiURL}Driver/info")
         .header("Authorization", s"Bearer ${Configuration.bearerToken}")
         .check(status.is(200))
-        .check(jsonPath("$.resultStatus").not("Fail")))
+        .check(jsonPath("$.resultStatus").not("Fail"))
+        .check(responseTimeInMillis.lte(7000))
+    )
 
     val getMostRecentCase = exec(http("Get most recent case")
         .get(s"${Configuration.apiURL}Cases/MostRecent")
         .header("Authorization", s"Bearer ${Configuration.bearerToken}")
         .check(status.is(200))
         .check(jsonPath("$.outstandingDocuments").is("0"))
+        .check(responseTimeInMillis.lte(10000))
     )
 
     val getClosedCases = exec(http("Get closed cases")
@@ -26,6 +29,7 @@ object DriverPortalRequests {
         .check(jsonPath("$").ofType[Seq[Any]])
         // TODO when not empty array, check the json properties like in all documents below
         //.check(jsonPath("$.?[?(@.id)]"))
+        .check(responseTimeInMillis.lte(10000))
     )
 
     val getCaseDocuments = exec(http("Get case documents")
@@ -37,6 +41,7 @@ object DriverPortalRequests {
             jmesPath("caseSubmissions").ofType[Seq[Any]],
             jmesPath("lettersToDriver").ofType[Seq[Any]]
         )
+        .check(responseTimeInMillis.lte(7000))
     )
 
     val getAllDocuments = exec(http("Get all documents")
@@ -44,6 +49,7 @@ object DriverPortalRequests {
         .header("Authorization", s"Bearer ${Configuration.bearerToken}")
         .check(status.is(200))
         .check(jsonPath("$").ofType[Seq[Any]])
+        .check(responseTimeInMillis.lte(7000))
     )
 
     val getDocumentTypes = exec(http("Get document types")
@@ -55,5 +61,6 @@ object DriverPortalRequests {
             jmesPath("[0].id").ofType[Int],
             jmesPath("[0].name").ofType[String],
         )
+        .check(responseTimeInMillis.lte(7000))
     )
 }
