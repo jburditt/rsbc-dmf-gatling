@@ -7,7 +7,7 @@ import io.gatling.http.Predef._
 object DocumentTypeRequest {
     
     val getDocumentTypes = exec(http("Get document types")
-        .get(s"${Configuration.apiURL}DocumentType/driver")
+        .get("DocumentType/driver")
         .header("Authorization", s"Bearer ${Configuration.bearerToken}")
         .check(status.is(200))
         .check(

@@ -7,7 +7,7 @@ import io.gatling.http.Predef._
 object DriverRequest {
     
     val getDriverInfo = exec(http("Get driver info")
-        .get(s"${Configuration.apiURL}Driver/info")
+        .get("Driver/info")
         .header("Authorization", s"Bearer ${Configuration.bearerToken}")
         .check(status.is(200))
         .check(jsonPath("$.resultStatus").not("Fail"))
@@ -15,7 +15,7 @@ object DriverRequest {
     )
 
     val getCaseDocuments = exec(http("Get case documents")
-        .get(s"${Configuration.apiURL}Driver/Documents")
+        .get("Driver/Documents")
         .header("Authorization", s"Bearer ${Configuration.bearerToken}")
         .check(status.is(200))
         .check(
@@ -27,7 +27,7 @@ object DriverRequest {
     )
 
     val getAllDocuments = exec(http("Get all documents")
-        .get(s"${Configuration.apiURL}Driver/AllDocuments")
+        .get("Driver/AllDocuments")
         .header("Authorization", s"Bearer ${Configuration.bearerToken}")
         .check(status.is(200))
         .check(jsonPath("$").ofType[Seq[Any]])

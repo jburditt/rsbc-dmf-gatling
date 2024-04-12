@@ -7,7 +7,7 @@ import io.gatling.http.Predef._
 object CaseRequest {
     
     val getMostRecentCase = exec(http("Get most recent case")
-        .get(s"${Configuration.apiURL}Cases/MostRecent")
+        .get("Cases/MostRecent")
         .header("Authorization", s"Bearer ${Configuration.bearerToken}")
         .check(status.is(200))
         .check(jsonPath("$.outstandingDocuments").is("0"))
@@ -15,7 +15,7 @@ object CaseRequest {
     )
 
     val getClosedCases = exec(http("Get closed cases")
-        .get(s"${Configuration.apiURL}Cases/Closed")
+        .get("Cases/Closed")
         .header("Authorization", s"Bearer ${Configuration.bearerToken}")
         .check(status.is(200))
         .check(jsonPath("$").ofType[Seq[Any]])

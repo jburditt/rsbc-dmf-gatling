@@ -13,5 +13,8 @@ class BasicSimulation extends Simulation {
         UserScenarios.getCaseDocuments.inject(atOnceUsers(1)),
         UserScenarios.getAllDocuments.inject(atOnceUsers(1)),
         UserScenarios.getDocumentTypes.inject(atOnceUsers(1)),
+        //  setUp(scn.inject(rampUsers(Integer.getInteger("userCount", 5)) during (Integer.getInteger("testDuration", 5) seconds)))
+        
     )
+        .protocols(HttpProtocol.httpProtocol)
 }
